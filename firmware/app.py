@@ -57,10 +57,10 @@ def update_buffer():
     global framebuffer, long_string
 
     temperatureCelsius = round((weather_obj.temperature - 32) * .556, 1)                       # temperature in celcius
-    measurement_time = datetime.fromtimestamp(weather_obj.time).strftime('%a,%H:%M')          # measurement time
+    measurement_time = datetime.fromtimestamp(weather_obj.time).strftime('%a,%H:%M')          # measurement time in day, hour, minutes
     summary = weather_obj.summary                                                              # brief summary
     precipProbability = int(weather_obj.precipProbability * 100 )                              # precipitation probability (%)
-    humidity = int(weather_obj.humidity * 100)                                                 # humidity probabilit (%)
+    humidity = int(weather_obj.humidity * 100)                                                 # humidity probability (%)
     icon_index = int(icon_names.index(weather_obj.icon))                                       # index of the icon
 
     # Pading for icon
@@ -74,7 +74,7 @@ def update_buffer():
     long_string = str(framebuffer[1])
 
 
-# Main
+# Main function
 def run():
     update_buffer()
 
@@ -92,5 +92,6 @@ def run():
         lcd.close(clear=True)
 
 
+# if this script is called, then execute 'run' method
 if(__name__ == "__main__"):
     run()
