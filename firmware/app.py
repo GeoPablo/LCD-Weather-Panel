@@ -33,7 +33,7 @@ for index,val in enumerate(icon_bytes):
     lcd.create_char(index, val)
 
 
-# Function to write the buffer on the screen ( scroll animation of second row is made by deleting and drawing the text each .5s )
+# Function to write the buffer on the screen ( scroll animation of second row is made by deleting and drawing the text each .4s )
 def write_to_lcd(lcd, framebuffer, num_cols):
     lcd.home()
     for row in framebuffer:
